@@ -84,6 +84,8 @@ char					**grimly(int fd)
 	return (map);
 }
 
+//SEGFAULT AVEC NO NEW LINE
+
 int						main(int argc, char **argv)
 {
 	int					fd;

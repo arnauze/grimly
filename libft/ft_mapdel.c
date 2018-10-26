@@ -17,11 +17,14 @@ void			ft_mapdel(char **map)
 	int			i;
 
 	i = -1;
-	while (map[++i])
+	if (map)
 	{
-		free(map[i]);
-		map[i] = NULL;
+		while (map[++i])
+		{
+			free(map[i]);
+			map[i] = NULL;
+		}
+		free(map);
+		map = NULL;
 	}
-	free(map);
-	map = NULL;
 }
