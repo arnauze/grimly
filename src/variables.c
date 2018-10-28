@@ -61,12 +61,13 @@ void					get_x(char *str, int *i)
 		j++;
 	}
 	tmp[j] = '\0';
+	*i += -1;
 	tmp = ft_strrevdup(tmp);
 	g_variables->size_x = ft_atoi(tmp);
 	ft_strdel(&tmp);
 }
 
-void					get_variables(int fd, int i)
+void					*get_variables(int fd, int i)
 {
 	char				c;
 	char				*str;
@@ -85,7 +86,12 @@ void					get_variables(int fd, int i)
 	g_variables->empty = str[i--];
 	g_variables->full = str[i--];
 	get_x(str, &i);
-	i--;
 	get_y(str, &i);
+	if (str[i])
+	{
+		ft_putstr_fd("MAP ERROR\n", 2);
+		return (NULL);
+	}
 	ft_strdel(&str);
+	return (g_variables);
 }

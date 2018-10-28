@@ -63,7 +63,8 @@ char					**grimly(int fd)
 	int					i;
 
 	i = 0;
-	get_variables(fd, 0);
+	if (get_variables(fd, 0) == NULL)
+		return (NULL);
 	if (g_variables->size_x * g_variables->size_y > 1000000000)
 		return (NULL);
 	if ((map = get_map(fd, g_variables->size_x + 1,
@@ -83,8 +84,6 @@ char					**grimly(int fd)
 	}
 	return (map);
 }
-
-//SEGFAULT AVEC NO NEW LINE
 
 int						main(int argc, char **argv)
 {

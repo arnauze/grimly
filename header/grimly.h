@@ -67,7 +67,7 @@ t_point					*pop_node(t_point **head);
 t_variables				*set_variables();
 void					get_y(char *str, int *i);
 void					get_x(char *str, int *i);
-void					get_variables(int fd, int i);
+void					*get_variables(int fd, int i);
 int						check_if_exit(t_point *coord, t_point **point,
 	t_point *exit, int dist);
 t_point					*get_tail(t_point *head);

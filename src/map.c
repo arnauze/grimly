@@ -61,7 +61,7 @@ char					**get_map(int fd, int size_x, int size_y, int i)
 	while (read(fd, &c, 1) == 1 && i <= size_y)
 	{
 		map[i][j++] = c;
-		if (c == '\n')
+		if (c == '\n' && j == size_x)
 		{
 			map[i][j] = '\0';
 			j = 0;
@@ -70,7 +70,7 @@ char					**get_map(int fd, int size_x, int size_y, int i)
 		}
 	}
 	map[i] = NULL;
-	if (j != 0)
+	if (j != 0 || i >= size_y + 1)
 	{
 		ft_putstr_fd("MAP ERROR\n", 2);
 		return (NULL);
